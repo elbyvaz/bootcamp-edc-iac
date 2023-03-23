@@ -1,0 +1,45 @@
+# montando uma esteira de deploy do projeto - pasta IaC
+# codigo YAML - indentacao obrigatoria
+
+### la no github, clicar na aba ACTIONS e escolher algum pacote q aparecem exemplos de codificacao da esteira
+
+# toda vez q tiver um push na branch master, esse codigo/esteira vai ser executada
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+
+# esses sao os passos da esteira de deploy
+jobs:
+  deploy:
+    name: Deploy to Datalake
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    -name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    -name: HashiCorp - Setup Terraform
+      uses: hashicorp/setup-terraform@v1.2.1
+
+    -name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ""
+        aws-secret-access-ley: ""
+        aws-region: us-east-2
+
+    -name: IaC Apply
+      env:
+        COMMAND_IAC: terraform
+      run: |
+        cd IaC
+        $COMMAND_IAC init
+        $COMMAND_IAC validate
+        $COMMAND_IAC plan
+        $COMMAND_IAC apply -auto-approve
