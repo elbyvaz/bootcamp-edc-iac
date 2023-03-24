@@ -3,7 +3,7 @@
 
 ### la no github, clicar na aba ACTIONS e escolher algum pacote q aparecem exemplos de codificacao da esteira
 
-# toda vez q tiver um push na branch master, esse codigo/esteira vai ser executada
+## toda vez q tiver um push na branch master, esse codigo/esteira vai ser executada
 name: Test on PR
 
 on:
