@@ -4,16 +4,16 @@
 ### la no github, clicar na aba ACTIONS e escolher algum pacote q aparecem exemplos de codificacao da esteira
 
 # toda vez q tiver um push na branch master, esse codigo/esteira vai ser executada
-name: Deploy
+name: Test on PR
 
 on:
-  push:
+  pull_request:
     branches: [master]
 
 # esses sao os passos da esteira de deploy
 jobs:
-  deploy:
-    name: Deploy to Datalake
+  test:
+    name: Test infra on PR
     runs-on: ubuntu-latest
     
     steps:
@@ -42,4 +42,3 @@ jobs:
         $COMMAND_IAC init
         $COMMAND_IAC validate
         $COMMAND_IAC plan
-        $COMMAND_IAC apply -auto-approve
