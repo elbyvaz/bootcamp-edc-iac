@@ -29,42 +29,43 @@ resource "aws_iam_policy" "lambda"{
     path = "/"
     description = "Provides write permissions to CloudWatch logs, s3 buckets and emr steps"
 
-    policy = <<EOF
-    {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "logs:CreateLogGroup",
-                    "logs:CreateLogStream",
-                    "logs:PutLogEvents"
-                ],
-                "Resource": "*"
-            },
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "s3:*"
-                ],
-                "Resource": "*"
-            },
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "elasticmapreduce:*"
-                ],
-                "Resource": "*"
-            },
-            {
-                "Action": "iam:PassRole",
-                "Resource": ["arn:aws:iam::127012818163:role/EMR_DefaultRole",
-                             "arn:aws:iam::127012818163:role/EMR_EC2_DefaultRole"],
-                "Effect": "Allow"
-            }
-        ]
-    }
-    EOF
+# manter recuada a esq, se nao dah erro no git hub
+policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "elasticmapreduce:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Action": "iam:PassRole",
+            "Resource": ["arn:aws:iam::127012818163:role/EMR_DefaultRole",
+                            "arn:aws:iam::127012818163:role/EMR_EC2_DefaultRole"],
+            "Effect": "Allow"
+        }
+    ]
+}
+EOF
 }
 
 resource "aws_iam_role_policy_attachment" "lambda_attach"{
