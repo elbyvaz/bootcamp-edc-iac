@@ -11,3 +11,4 @@ uploadFileToS3.py
 *.R
 *.jobSparkCsvToParquet
 *.sps
+*.docx
