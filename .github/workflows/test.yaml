@@ -13,7 +13,7 @@ on:
 # esses sao os passos da esteira de deploy
 jobs:
   test:
-    name: Test infra on PR
+    name: Test infra on PROD
     runs-on: ubuntu-latest
     
     steps:
