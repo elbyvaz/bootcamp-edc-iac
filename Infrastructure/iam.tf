@@ -29,6 +29,7 @@ resource "aws_iam_policy" "lambda"{
     path = "/"
     description = "Provides write permissions to CloudWatch logs, s3 buckets and emr steps"
 
+# manter recuada a esq, se nao dah erro no git hub
 policy = <<EOF
 {
     "Version": "2012-10-17",

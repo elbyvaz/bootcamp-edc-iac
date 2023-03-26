@@ -3,7 +3,6 @@ TrabalhoPratico
 *.txt
 *.csv
 jobSparkCsvToParquet.py
-*.zip
 *.ipynb
 uploadFileToS3.py
 *.ods
