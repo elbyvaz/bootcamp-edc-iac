@@ -35,7 +35,7 @@ resource "aws_iam_policy" "lambda"{
         "Statement": [
             {
                 "Effect": "Allow",
-                "Action":[
+                "Action": [
                     "logs:CreateLogGroup",
                     "logs:CreateLogStream",
                     "logs:PutLogEvents"
@@ -44,14 +44,14 @@ resource "aws_iam_policy" "lambda"{
             },
             {
                 "Effect": "Allow",
-                "Action":[
+                "Action": [
                     "s3:*"
                 ],
                 "Resource": "*"
             },
             {
                 "Effect": "Allow",
-                "Action":[
+                "Action": [
                     "elasticmapreduce:*"
                 ],
                 "Resource": "*"
