@@ -12,3 +12,4 @@ uploadFileToS3.py
 *.jobSparkCsvToParquet
 *.sps
 *.docx
+Infrastructure/main.tf
